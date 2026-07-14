@@ -1,0 +1,12 @@
+2026-07-14 13:09:54 | INFO | client | Binance client initialized
+2026-07-14 13:09:54 | INFO | client | Environment variables loaded
+2026-07-14 13:09:54 | INFO | client | API credentials loaded successfully.
+2026-07-14 13:09:54 | INFO | client | python-binance Client initialized and configured to use custom BASE_URL: https://testnet.binancefuture.com/fapi
+2026-07-14 13:09:54 | INFO | orders | Placing MARKET BUY order
+2026-07-14 13:09:54 | INFO | orders | Order request
+2026-07-14 13:09:54 | INFO | orders | Order response received
+2026-07-14 13:09:54 | INFO | orders | Order placed successfully
+2026-07-14 13:09:54 | INFO | orders | Placing LIMIT SELL order
+2026-07-14 13:09:54 | INFO | orders | Order request
+2026-07-14 13:09:54 | INFO | orders | Order response received
+2026-07-14 13:09:54 | INFO | orders | Order placed successfully

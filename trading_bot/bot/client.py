@@ -55,9 +55,7 @@ class BinanceFuturesClient:
             logger.error(err_msg)
             raise ValueError(err_msg)
 
-        # Log loaded credentials safely (never log API Secret, mask API Key)
-        masked_key = f"{self.api_key[:5]}...{self.api_key[-5:]}" if len(self.api_key) > 10 else "..."
-        logger.info(f"Loaded credentials. API Key: {masked_key} | Base URL: {self.base_url}")
+        logger.info("API credentials loaded successfully.")
 
         # Ensure base URL ends with '/fapi' as required by python-binance
         api_url = self.base_url.rstrip('/')

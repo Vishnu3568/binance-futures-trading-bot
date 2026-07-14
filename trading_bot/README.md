@@ -72,6 +72,10 @@ The project implements a structured logging system using Python's built-in `logg
 Logs are saved in the project root directory under the `logs/` folder in the following file:
 - `trading_bot/logs/trading.log` (automatically created at runtime if the directory does not exist).
 
+> [!NOTE]
+> Since the `logs/` directory is ignored by Git, the required assignment log files containing **one successful MARKET order** and **one successful LIMIT order** are committed and available under:
+> - `trading_bot/sample_logs/trading.log`
+
 ### Console Logging
 - Output is written directly to stdout/stderr.
 - Follows the structured format: `Timestamp | Log Level | Module Name | Message`
