@@ -17,14 +17,14 @@ trading_bot/
 │
 ├── bot/
 │   ├── __init__.py          # Exports package modules
-│   ├── client.py            # API client wrapper stub
-│   ├── orders.py            # Order placement and formatting stubs
-│   ├── validators.py        # CLI input validators stub
-│   └── logging_config.py    # Console/File logging setup stub
+│   ├── client.py            # API client wrapper
+│   ├── orders.py            # Order placement and formatting
+│   ├── validators.py        # CLI input validators
+│   └── logging_config.py    # Console/File logging setup
 │
 ├── logs/                    # Folder containing log files (created dynamically)
 │
-├── cli.py                   # Command Line Interface (CLI) entry point stub
+├── cli.py                   # Command Line Interface (CLI) entry point
 ├── README.md                # Project documentation
 ├── requirements.txt         # Project package requirements
 ├── .gitignore               # Ignored files (logs, environment variables)
@@ -51,7 +51,7 @@ Configure environment variables:
    ```env
    BINANCE_API_KEY=your_api_key_here
    BINANCE_API_SECRET=your_api_secret_here
-   BINANCE_USE_TESTNET=True
+   BASE_URL=https://testnet.binancefuture.com
    ```
 
 ## Running
@@ -71,7 +71,6 @@ The project implements a structured logging system using Python's built-in `logg
 ### Log File Location
 Logs are saved in the project root directory under the `logs/` folder in the following file:
 - `trading_bot/logs/trading.log` (automatically created at runtime if the directory does not exist).
-
 
 ### Console Logging
 - Output is written directly to stdout/stderr.
