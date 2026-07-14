@@ -66,9 +66,26 @@ Examples of how to run the CLI once implemented:
   ```
 
 ## Logging
-Logs are automatically written to `logs/bot.log`.
-- **Console Log**: Displays standard execution flow and summaries.
-- **File Log**: Traces full API request details and exception information at debug level.
+The project implements a structured logging system using Python's built-in `logging` module.
+
+### Log File Location
+Logs are saved in the project root directory under the `logs/` folder in the following file:
+- `trading_bot/logs/trading.log` (automatically created at runtime if the directory does not exist).
+
+### Console Logging
+- Output is written directly to stdout/stderr.
+- Follows the structured format: `Timestamp | Log Level | Module Name | Message`
+- Level configured: `INFO` (with `DEBUG` support for future expansions).
+
+### File Logging
+- Output is written to `trading.log`.
+- Follows the structured format: `Timestamp | Log Level | Module Name | Message`
+- Level configured: `INFO`.
+
+### Log Rotation
+To prevent storage build-up, log files rotate dynamically:
+- **Maximum File Size**: 5 MB per file.
+- **Backup Count**: Keeps up to 5 historical backup files (e.g., `trading.log.1`, `trading.log.2`, etc.).
 
 ## Future Improvements
 - Implement order quantity/price rounders mapping exchange step-size and tick-size filters.
