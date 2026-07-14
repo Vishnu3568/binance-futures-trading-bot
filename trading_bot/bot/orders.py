@@ -90,17 +90,15 @@ class OrderManager:
         qty = params.get("quantity")
         price = params.get("price")
 
-        logger.info(f"Order request -> Type: {order_type} | Side: {side} | Symbol: {symbol} | Qty: {qty}" + (f" | Price: {price}" if price else ""))
+        logger.info("Order request")
 
         try:
             # Call underlying python-binance client instance
             raw_response = self.client.get_client().futures_create_order(**params)
             
-            logger.info(f"API response -> Success. Status: {raw_response.get('status')} | Order ID: {raw_response.get('orderId')}")
-            logger.debug(f"Raw API Response Content: {raw_response}")
-
+            logger.info("Order response received")
+            logger.info("Order placed successfully")
             normalized = self._normalize_response(raw_response)
-            logger.info(f"Execution status: {normalized['status']}")
             return normalized
 
         except BinanceAPIException as e:
@@ -143,6 +141,7 @@ class OrderManager:
         v_side = validate_side(side)
         v_type = validate_order_type("MARKET")
         v_qty = validate_quantity(quantity)
+        logger.info(f"Placing MARKET {v_side} order")
 
         params = {
             "symbol": v_symbol,
@@ -170,6 +169,7 @@ class OrderManager:
         v_qty = validate_quantity(quantity)
         v_price = validate_price(price)
         validate_limit_requirements(v_type, v_price)
+        logger.info(f"Placing LIMIT {v_side} order")
 
         params = {
             "symbol": v_symbol,
