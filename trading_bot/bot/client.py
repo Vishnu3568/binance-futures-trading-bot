@@ -33,14 +33,14 @@ class BinanceFuturesClient:
 
         :raises ValueError: If required environment variables or credentials are missing.
         """
-        logger.info("Initializing BinanceFuturesClient...")
+        logger.info("Binance client initialized")
         
         # Load and validate credentials
         self.api_key = api_key or os.getenv("BINANCE_API_KEY")
         self.api_secret = api_secret or os.getenv("BINANCE_API_SECRET")
         self.base_url = base_url or os.getenv("BASE_URL")
 
-        logger.info("Loading environment configurations...")
+        logger.info("Environment variables loaded")
         
         missing_vars = []
         if not self.api_key:
@@ -99,7 +99,7 @@ class BinanceFuturesClient:
         logger.info("Sending ping request to Binance Futures Testnet...")
         try:
             self.client.futures_ping()
-            logger.info("Ping request successful.")
+            logger.info("Ping successful")
             return True
         except BinanceAPIException as e:
             err_msg = f"Ping failed - API Error: {e.message} (Code: {e.code})"
@@ -129,7 +129,7 @@ class BinanceFuturesClient:
         try:
             time_data = self.client.futures_time()
             server_time = int(time_data["serverTime"])
-            logger.info(f"Server time retrieved successfully: {server_time}")
+            logger.info("Server time retrieved")
             return server_time
         except BinanceAPIException as e:
             err_msg = f"Failed to fetch server time - API Error: {e.message} (Code: {e.code})"
@@ -157,7 +157,7 @@ class BinanceFuturesClient:
         try:
             # We call futures_account_balance() which is a lightweight authenticated call
             self.client.futures_account_balance()
-            logger.info("Authenticated connection test successful. Credentials are valid.")
+            logger.info("Connection test successful")
             return True
         except BinanceAPIException as e:
             # Specific handling for authentication failure codes (e.g. -1022 signature failed, -2015 invalid key)
